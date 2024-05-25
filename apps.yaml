@@ -47,3 +47,13 @@
       screenshots: ["badger2040emfnownext.jpg"]
   online: true
   offline: true
+- name: "EMP: ElectroMagnetic Field Planner"
+  author: "dave1010"
+  infourl: "https://github.com/dave1010/emf-planner"
+  platforms:
+    - name: "In-Browser/Web-App"
+      icons: ["webapp"]
+      screenshots:
+        - "emfplanner.png"
+      links:
+        - ["Web App", "https://emp.dave.engineer/"]

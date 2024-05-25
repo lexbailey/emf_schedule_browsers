@@ -16,6 +16,7 @@ icon_alts = {
     'zxspec': 'Runs on Sinclair ZX Spectrum',
     'badger2040': 'Runs on Badger 2040',
     'viewdata': 'Accessed via ViewData',
+    'webapp': 'Accessed via the web',
 }
 def icon(name):
     return f'<img class="icon" src="icons/{name}.svg" alt="{icon_alts.get(name, name)}">'
