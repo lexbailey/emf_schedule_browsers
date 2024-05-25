@@ -42,8 +42,8 @@
   author: "IainYa"
   infourl: "https://github.com/IainYa/Badger-2040-W-emfcamp-Now-Next"
   platforms:
-    - name: "Badger 2040 W"
+    - name: "Badger 2040 (W/Original)"
       icons: ["badger2040"]
-      screenshots: []
+      screenshots: ["badger2040emfnownext.jpg"]
   online: true
   offline: true
