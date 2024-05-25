@@ -1,0 +1,49 @@
+- name: "EMFInfo"
+  author: "Lex Bailey (they/them)"
+  infourl: "https://github.com/lexbailey/EMFInfo"
+  online: false
+  offline: true
+  platforms:
+    - name: "ZX Spectrum 48k"
+      icons: ["zxspec"]
+      screenshots:
+        - "emfinfo_zxspec_map.png"
+        - "emfinfo_zxspec_timetable.png"
+      links:
+        - ["download .tap file", "https://github.com/lexbailey/EMFInfo/releases/download/Release/zxspectrum.tap"]
+    - name: "MS-DOS"
+      icons: ["msdos"]
+      screenshots:
+        - "emfinfo_msdos.png"
+      links:
+        - ["download .zip of disk contents", "https://github.com/lexbailey/EMFInfo/releases/download/Release/ms-dos.zip"]
+    - name: "Linux"
+      icons: ["linux"]
+      screenshots:
+        - "emfinfo_linux.png"
+      links:
+        - ["download .zip file", "https://github.com/lexbailey/EMFInfo/releases/download/Release/linux.zip"]
+
+- name: "EMF Live"
+  author: "baljemmett"
+  infourl: "https://viewdata.microwavepizza.co.uk/"
+  online: true
+  offline: false
+  platforms:
+    - name: "ViewData Terminal"
+      icons: ["viewdata"]
+      screenshots:
+        - "emf_live_welcome.png"
+        - "emf_live_menu.png"
+      links:
+        - ["Web client", "https://viewdata.microwavepizza.co.uk/"]
+
+- name: "Badger 2040 W emfcamp Now Next"
+  author: "IainYa"
+  infourl: "https://github.com/IainYa/Badger-2040-W-emfcamp-Now-Next"
+  platforms:
+    - name: "Badger 2040 W"
+      icons: ["badger2040"]
+      screenshots: []
+  online: true
+  offline: true

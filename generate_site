@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+from html import escape as esc
+from yaml import safe_load as yload
+
+data = yload(open('apps.yaml').read())
+
+icon_alts = {
+    'online': 'Supports Online Schedule Access',
+    'offline': 'Reads local offline copy',
+    'github': 'GitHub link',
+    'linux': 'Runs on Linux',
+    'msdos': 'Runs on MS-DOS',
+    'zxspec': 'Runs on Sinclair ZX Spectrum',
+    'badger2040': 'Runs on Badger 2040',
+    'viewdata': 'Accessed via ViewData',
+}
+def icon(name):
+    return f'<img class="icon" src="icons/{name}.svg" alt="{icon_alts.get(name, name)}">'
+
+keytext = """
+        <section class="key">
+        <h2>Key</h2>
+        <p><ul>
+"""
+for i, alt in icon_alts.items():
+    keytext += f"<li>{icon(i)} - {alt}</li>"
+keytext += "</ul></p></section>"
+
+header = f"""
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>EMF Schedule Browsers</title>
+        <style type="text/css">
+            body{{
+                background-color: gray;                
+            }}
+            img.icon{{
+                width: 1.0em;
+                margin-left: 0.5em;
+            }}
+            img.screenshot{{
+                width: 20vw;
+            }}
+            section{{
+                float: left;
+                border: 1px black solid;
+                padding: 1em;
+                padding-top: 0;
+                margin: 1em;
+                border-radius: 1em;
+                background-color: white;
+            }}
+            section.platform{{
+                margin: 0 1em 0 0;
+                border-radius: 1em;
+            }}
+            header{{
+              border: 1px black solid;
+              border-radius: 1em;
+              padding: 1em;
+              margin: 1em;
+              background-color: white;
+            }}
+        </style>
+    </head>
+    <body>
+        <header>
+        <h1>EMF Schedule Browsers</h1>
+        <p>This is a list of applications that people have written for browsing the schedule for <a href="https://emfcamp.org/">EMF Camp 2024</a><br>Did I miss one? <a href="contribute.html">Let me know!</a></p>
+        </header>
+"""
+
+footer = f"""
+        {keytext}
+    </body>
+</html>
+"""
+
+with open('index.html', 'w+') as html:
+    html.write(header)
+    for app in data:
+        s = lambda n, default: esc(app.get(n, default))
+        b = lambda n: app.get(n, False)
+        icon_if = lambda i, n: icon(i) if b(n) else ""
+        info_link = ""
+        iurl = app.get('infourl')
+        if iurl:
+            is_github = iurl.startswith("https://github.com/")
+            if is_github:
+                info_link += icon('github')
+                info_link += f'<a href="{esc(iurl)}">GitHub page</a>'
+            else:
+                info_link += f'<a href="{esc(iurl)}">More info</a>'
+        html.write(f"""
+            <section class="app">
+            <h2>{s("name", "unknown app")}{icon_if('online', 'online')}{icon_if('offline', 'offline')}</h2>
+            <p>By {s("author", "unknown author")}</p>
+            {info_link}
+            <h3>Supported platforms</h3>
+        """)
+        for platform in app.get('platforms',[]):
+            ps = lambda n, default: esc(platform.get(n, default))
+            html.write(f"""<section class="platform">
+                <h4>{ps("name", "Unknown platform")}
+            """)
+            icons = platform.get("icons", [])
+            for i in icons:
+                html.write(icon(i))
+            html.write("</h4>")
+            links = platform.get("links", [])
+            for link in links:
+                try:
+                    text, url = link
+                except:
+                    print("Error, link should be in the form [text, url]")
+                    sys.exit(1)
+                html.write(f"""<a href="{esc(url)}">{esc(text)}</a><br>""")
+
+            screenshots = platform.get("screenshots", [])
+            for screenshot in screenshots:
+                alt = f'Screenshot of {s("name", "Unknown app")} running on {ps("name", "Unknown platform")}'
+                html.write(f"""
+                    <img class="screenshot" src="screenshots/{screenshot}" alt="{alt}">
+                """)
+            html.write("</section>")
+        html.write("</section>")
+        
+    html.write(footer)
