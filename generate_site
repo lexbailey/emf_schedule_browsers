@@ -99,9 +99,15 @@ with open('index.html', 'w+') as html:
                 info_link += f'<a href="{esc(iurl)}">GitHub page</a>'
             else:
                 info_link += f'<a href="{esc(iurl)}">More info</a>'
+        # gather all icons into title
+        icons = set()
+        for platform in app.get('platforms',[]):
+            for i in platform.get("icons", []):
+                icons.add(icon(i))
+        icons = ''.join(sorted(list(icons)))
         html.write(f"""
             <section class="app">
-            <h2>{s("name", "unknown app")}{icon_if('online', 'online')}{icon_if('offline', 'offline')}</h2>
+            <h2>{s("name", "unknown app")}{icon_if('online', 'online')}{icon_if('offline', 'offline')}{icons}</h2>
             <p>By {s("author", "unknown author")}</p>
             {info_link}
             <h3>Supported platforms</h3>
