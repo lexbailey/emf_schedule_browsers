@@ -44,7 +44,7 @@ header = f"""
                 margin-left: 0.5em;
             }}
             img.screenshot{{
-                width: 20vw;
+                height: 20vw;
             }}
             section{{
                 float: left;
@@ -54,6 +54,7 @@ header = f"""
                 margin: 1em;
                 border-radius: 1em;
                 background-color: white;
+                min-height: calc(20vw + 6em);
             }}
             section.platform{{
                 margin: 0 1em 1em 0;

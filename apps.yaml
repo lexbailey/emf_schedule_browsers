@@ -47,9 +47,12 @@
       screenshots: ["badger2040emfnownext.jpg"]
   online: true
   offline: true
+
 - name: "EMP: ElectroMagnetic Field Planner"
-  author: "dave1010"
+  author: "Dave Hulbert (he/him)"
   infourl: "https://github.com/dave1010/emf-planner"
+  online: true
+  offline: false
   platforms:
     - name: "In-Browser/Web-App"
       icons: ["webapp"]
@@ -57,3 +60,13 @@
         - "emfplanner.png"
       links:
         - ["Web App", "https://emp.dave.engineer/"]
+
+- name: "EMF Camp Schedule Viewer"
+  author: "Nathan Barrow (he/him)"
+  infourl: "https://github.com/barrown/EMF-Camp-Schedule-Viewer"
+  online: false
+  offline: true
+  platforms:
+    - screenshots:
+        - "emf_gantt.png"
+      
