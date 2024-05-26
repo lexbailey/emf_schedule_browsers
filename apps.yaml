@@ -10,19 +10,19 @@
         - "emfinfo_zxspec_map.png"
         - "emfinfo_zxspec_timetable.png"
       links:
-        - ["download .tap file", "https://github.com/lexbailey/EMFInfo/releases/download/Release/zxspectrum.tap"]
+        - ["download .tap file", "https://github.com/lexbailey/EMFInfo/releases/download/Release/EMFInfo_zxspectrum.tap"]
     - name: "MS-DOS"
       icons: ["msdos"]
       screenshots:
         - "emfinfo_msdos.png"
       links:
-        - ["download .zip of disk contents", "https://github.com/lexbailey/EMFInfo/releases/download/Release/ms-dos.zip"]
+        - ["download .zip of disk contents", "https://github.com/lexbailey/EMFInfo/releases/download/Release/EMFInfo_ms-dos.zip"]
     - name: "Linux"
       icons: ["linux"]
       screenshots:
         - "emfinfo_linux.png"
       links:
-        - ["download .zip file", "https://github.com/lexbailey/EMFInfo/releases/download/Release/linux.zip"]
+        - ["download .zip file", "https://github.com/lexbailey/EMFInfo/releases/download/Release/EMFInfo_linux.zip"]
 
 - name: "EMF Live"
   author: "baljemmett"
