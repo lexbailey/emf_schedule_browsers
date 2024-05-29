@@ -8,15 +8,19 @@ from yaml import safe_load as yload
 data = yload(open('apps.yaml').read())
 
 icon_alts = {
-    'online': 'Supports Online Schedule Access',
-    'offline': 'Reads local offline copy',
+    'online': 'Reads the schedule from the API',
+    'offline': 'Reads local offline copy of schedule',
     'github': 'GitHub link',
     'linux': 'Runs on Linux',
     'msdos': 'Runs on MS-DOS',
+    'windows': 'Runs on Microsoft Windows',
+    'macos': 'Runs on Mac OS',
     'zxspec': 'Runs on Sinclair ZX Spectrum',
     'badger2040': 'Runs on Badger 2040',
     'viewdata': 'Accessed via ViewData',
     'webapp': 'Accessed via the web',
+    'phone': 'Accessed by dialing a phone number',
+    'pager': 'Transmits information to a pager',
 }
 def icon(name):
     return f'<img class="icon" src="icons/{name}.svg" alt="{icon_alts.get(name, name)}">'
@@ -54,11 +58,13 @@ header = f"""
                 margin: 1em;
                 border-radius: 1em;
                 background-color: white;
-                min-height: calc(20vw + 6em);
             }}
             section.platform{{
                 margin: 0 1em 1em 0;
                 border-radius: 1em;
+            }}
+            section.platform:has(.screenshot) {{
+                min-height: calc(20vw + 6em);
             }}
             header{{
               border: 1px black solid;

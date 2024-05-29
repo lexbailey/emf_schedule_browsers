@@ -81,3 +81,20 @@
       screenshots:
         - "emf_cli.png"
       
+- name: "EMF camp Dial-a-Schedule"
+  author: "Dan Nixon (they/them)"
+  infourl: "https://github.com/DanNixon/emfcamp-dial-a-schedule"
+  online: true 
+  offline: false 
+  platforms:
+    - name: "(Phone service)"
+      icons: ["phone"]
+      
+- name: "DAPNET EMF Camp schedule announcer"
+  author: "Dan Nixon (they/them)"
+  infourl: "https://github.com/DanNixon/emfcamp-dapnet-schedule-announcer/"
+  online: true
+  offline: false
+  platforms:
+    - name: "(Pager service)"
+      icons: ["pager"]
