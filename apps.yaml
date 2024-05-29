@@ -98,3 +98,5 @@
   platforms:
     - name: "(Pager service)"
       icons: ["pager"]
+      screenshots:
+        - "pager.jpg"
