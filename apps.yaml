@@ -70,3 +70,14 @@
     - screenshots:
         - "emf_gantt.png"
       
+- name: "emfcamp-schedule-api CLI"
+  author: "Dan Nixon (they/them)"
+  infourl: "https://github.com/DanNixon/emfcamp-schedule-api/tree/main/cli"
+  online: true 
+  offline: false 
+  platforms:
+    - name: "Linux/MacOS/Windows"
+      icons: ["linux", "macos", "windows"]
+      screenshots:
+        - "emf_cli.png"
+      
